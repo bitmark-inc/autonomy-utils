@@ -111,6 +111,11 @@ func VerifyETHSignature(message, signature, address string) (bool, error) {
 
 // VerifyTezosSignature verifies a signature with a given message and address
 func VerifyTezosSignature(message, signature, address, publicKey string) (bool, error) {
+	return VerifyTezosSignatureMessageInBytes([]byte(message), signature, address, publicKey)
+}
+
+// VerifyTezosSignature verifies a signature with a given message in bytes and address
+func VerifyTezosSignatureMessageInBytes(message []byte, signature, address, publicKey string) (bool, error) {
 	ta, err := tezos.ParseAddress(address)
 	if err != nil {
 		return false, err
@@ -126,7 +131,7 @@ func VerifyTezosSignature(message, signature, address, publicKey string) (bool, 
 	if err != nil {
 		return false, err
 	}
-	dmp := tezos.Digest([]byte(message))
+	dmp := tezos.Digest(message)
 	err = pk.Verify(dmp[:], sig)
 	if err != nil {
 		return false, err

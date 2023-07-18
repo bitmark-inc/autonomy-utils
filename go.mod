@@ -5,6 +5,7 @@ go 1.20
 require (
 	blockwatch.cc/tzgo v1.16.6
 	github.com/ethereum/go-ethereum v1.11.6
+	github.com/gabriel-vasile/mimetype v1.4.2
 	github.com/stretchr/testify v1.8.1
 )
 
@@ -17,6 +18,7 @@ require (
 	github.com/holiman/uint256 v1.2.2-0.20230321075855-87b91420868c // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	golang.org/x/crypto v0.10.0 // indirect
+	golang.org/x/net v0.10.0 // indirect
 	golang.org/x/sys v0.9.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

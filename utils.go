@@ -74,6 +74,16 @@ func EpochStringToTime(ts string) (time.Time, error) {
 	return time.Unix(0, t*1000000), nil
 }
 
+// EpochStringToTime returns the time object of a seconds epoch time string
+func EpochStringToTimeInSecond(ts string) (time.Time, error) {
+	t, err := strconv.ParseInt(ts, 10, 64)
+	if err != nil {
+		return time.Time{}, err
+	}
+
+	return time.Unix(0, t*1000000000), nil
+}
+
 // IsTimeInRange ensures a given timestamp is within a range of a target time
 func IsTimeInRange(actual, target time.Time, deviationInMinutes float64) bool {
 	duration := target.Sub(actual)

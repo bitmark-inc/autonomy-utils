@@ -81,7 +81,7 @@ func EpochStringToTimeInSecond(ts string) (time.Time, error) {
 		return time.Time{}, err
 	}
 
-	return time.Unix(0, t*1000000000), nil
+	return time.Unix(t, 0), nil
 }
 
 // IsTimeInRange ensures a given timestamp is within a range of a target time
